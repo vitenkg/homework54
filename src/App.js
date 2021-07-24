@@ -1,25 +1,51 @@
-import logo from './logo.svg';
 import './App.css';
+import {useState} from "react";
+import Square from "./Components/Square/Square";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    const [squares, setSquares] = useState([]);
+
+    const newGame = () => {
+        const newSquares = [];
+        for (let i = 0; i < 36; i++) {
+            newSquares.push({
+                id: i,
+                find: true,
+                close: true,
+            });
+        }
+        setSquares(newSquares);
+    };
+
+    const openDiv = id => {
+        setSquares(squares.map(div => {
+            if (div.id === id) {
+                return {
+                    ...div,
+                    close: false,
+                };
+            }
+            return div;
+        }));
+    };
+
+    const squaresComponents = (
+        <Square
+            squares={squares}
+            onOpenDiv={openDiv}
+        />
+
+    );
+
+    return (
+        <div className="App" style={{textAlign: 'center', width: '192px'}}>
+            {squaresComponents}
+
+            <p>
+                <button onClick={newGame}>New Game</button>
+            </p>
+        </div>
+    )
+};
 
 export default App;

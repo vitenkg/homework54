@@ -2,10 +2,14 @@
     display: inline-block;
     width: 30px;
     height: 30px;
-    color: red;
     margin: 1px;
+    cursor: pointer;
 }
 
 .main.close {
     background: black;
+}
+
+.spanCenter {
+    margin: 0;
 }

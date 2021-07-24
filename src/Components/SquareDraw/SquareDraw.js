@@ -1,21 +1,23 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './SquareDraw.css'
 
 const SquareDraw = props => {
     const divClasses = ['main'];
-    let smile = '';
+    let findComponent = null;
 
     if (props.close) {
     divClasses.push('close');
     }
 
     if (props.find) {
-        smile = ['&#9775;'];
+        findComponent = (
+            <p className="spanCenter">&#9775;</p>
+        )
     }
 
     return (
         <div className={divClasses.join(' ')} onClick={props.onOpenDiv}>
-            {smile}
+            {findComponent}
         </div>
     );
 }

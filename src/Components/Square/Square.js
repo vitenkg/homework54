@@ -7,6 +7,7 @@ const Square = props => {
             key={cell.id}
             id={cell.id}
             close={cell.close}
+            find={cell.find}
             onOpenDiv={()=> props.onOpenDiv(cell.id)}
         />
     ));

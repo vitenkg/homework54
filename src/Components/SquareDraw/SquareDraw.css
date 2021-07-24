@@ -1,15 +1,25 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
 .main {
     display: inline-block;
+    line-height: 30px;
     width: 30px;
     height: 30px;
-    margin: 1px;
+    padding: 0;
+    color: white;
     cursor: pointer;
+    border: 1px solid black;
 }
 
 .main.close {
     background: black;
+    color: black;
 }
 
-.spanCenter {
-    margin: 0;
+.find {
+    color: black;
 }

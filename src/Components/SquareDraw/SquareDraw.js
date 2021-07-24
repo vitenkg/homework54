@@ -1,24 +1,26 @@
-import React, {useState} from 'react';
 import './SquareDraw.css'
 
 const SquareDraw = props => {
+    let setStyle = null;
     const divClasses = ['main'];
-    let findComponent = null;
+    // let component = null;
 
     if (props.close) {
     divClasses.push('close');
     }
 
     if (props.find) {
-        findComponent = (
-            <p className="spanCenter">&#9775;</p>
-        )
+        divClasses.push('find');
+        // component = (
+        //     <span>&#9775;</span>
+        // )
     }
 
     return (
-        <div className={divClasses.join(' ')} onClick={props.onOpenDiv}>
-            {findComponent}
-        </div>
+        <p className={divClasses.join(' ')} style={setStyle} onClick={props.onOpenDiv}>
+            {/*{component}*/}
+            &#9775;
+        </p>
     );
 }
 
